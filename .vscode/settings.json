@@ -1,0 +1,11 @@
+
+{
+  "deno.enable": false,
+  "editor.tabSize": 2,
+  "[javascript]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  
+}
