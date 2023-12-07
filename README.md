@@ -1,4 +1,4 @@
-# Medieye Server - 약리미
+# Medieye Server - 💊약리미💊
 
 
 <p align="center">  
