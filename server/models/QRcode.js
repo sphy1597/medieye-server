@@ -12,7 +12,7 @@ const QRcode = (sequelize) => {
       type: Sequelize.STRING(100),
       allowNull: false,
     },
-    Qrcode_info: {
+    qrcode: {
       type: Sequelize.STRING(100),
       allowNull: false,
     },
