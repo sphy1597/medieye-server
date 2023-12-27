@@ -1,6 +1,6 @@
 const { bcryptPassword, comparePassword } = require("./encryption");
 const jwt = require("../utils/jwt_utils");
-const { User, Pharmacist, Prescription } = require("../models");
+const { User, Pharmacist, Prescription, Medicine } = require("../models");
 const { where } = require("sequelize");
 
 // 약사 >> 처방전 등록
