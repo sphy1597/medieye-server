@@ -103,6 +103,12 @@ const getDetailPrescription = async (req, res) => {
       pharmacist_id: pharmacist_id,
       prescription_id: prescription_id,
     },
+    include: [
+      {
+        model: Medicine,
+        attributes: [id, name],
+      },
+    ],
   });
 
   res.json({
