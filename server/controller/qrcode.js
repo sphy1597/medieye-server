@@ -6,9 +6,15 @@ const { User, Presciption, QRcode } = require("../models");
 const postUserQR = async (req, res) => {
   const { user_id, qrcode } = req.body;
 
+  // note : 원래 있을때, 없을때 구분해서 결과 생성해야됨
   const userqrResult = await QRcode.findOrCreate({
     where: { qrcode: qrcode },
     default: { user_id: user_id, qrcode: qrcode },
+  });
+
+  res.json({
+    message: "리스트에 QR코드를 추가했습니다.",
+    result: userqrResult,
   });
 };
 
@@ -61,4 +67,4 @@ const getUserQRDetail = async (req, res) => {
   });
 };
 
-module.exports = { postUserQR };
+module.exports = { postUserQR, getUserQRList, deleteUserQR, getUserQRDetail };
