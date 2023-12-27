@@ -5,9 +5,16 @@ const { where } = require("sequelize");
 
 // 약사 >> 처방전 등록
 const postPrescription = async (req, res) => {
-  const { pharmacist_id, patient_name, qrcode, comment, prescription_date } =
-    req.body;
+  const {
+    pharmacist_id,
+    patient_name,
+    qrcode,
+    comment,
+    prescription_date,
+    medicines,
+  } = req.body;
 
+  // 처방전 데이터 생성
   const setResult = await Prescription.create({
     pharmacist_id,
     patient_name,
@@ -15,6 +22,15 @@ const postPrescription = async (req, res) => {
     comment,
     prescription_date,
   });
+
+  // 처방전의 약들 리스트 데이터 생성
+  for (let medicineInfo of medicines) {
+    const { name } = medicineInfo;
+    await Medicine.create({
+      name,
+      prescription_id: prescription_id,
+    });
+  }
 
   res.json({
     result: setResult,
