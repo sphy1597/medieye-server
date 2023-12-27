@@ -3,10 +3,10 @@ const jwt = require("../utils/jwt_utils");
 const { User, Presciption } = require("../models");
 const QRcode = require("../models/QRcode");
 
-const getCheckQR = (req, res) => {
+const getCheckQR = async (req, res) => {
   const { QRcodeInfo } = req.body;
 
-  const searchResult = Presciption.findOne({
+  const searchResult = await Presciption.findOne({
     where: {
       qrcode: QRcodeInfo,
     },
@@ -33,13 +33,13 @@ const getCheckQR = (req, res) => {
   }
 };
 
-const getKDcode = (req, res) => {
+const getKDcode = async (req, res) => {
   const { KDcode } = req.body;
 
   //api로 정보 가져오는 기능
 };
 
-const getMediName = (req, res) => {
+const getMediName = async (req, res) => {
   const { name } = req.body;
   //api로 이름 가져오기
 };
