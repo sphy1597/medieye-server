@@ -54,4 +54,4 @@ const getMediName = async (req, res) => {
   //api로 이름 가져오기
 };
 
-module.exports = { getCheckQR, getKDcode };
+module.exports = { getCheckQR, getKDcode, getMediName };
