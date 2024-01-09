@@ -11,12 +11,18 @@ const postPharmacist = async (req, res) => {
   //bcrypt 암호화
   const hashPw = bcryptPassword(password);
 
-  const pharmacist = await Pharmacist.create({
-    pharmacist_id,
-    hashPw,
-    nickname,
-    pharmacy_name,
-    pharmacy_address,
+  const pharmacist = await Pharmacist.findOrCreate({
+    where: {
+      pharmacist_id,
+      hashPw,
+    },
+    default: {
+      pharmacist_id,
+      hashPw,
+      nickname,
+      pharmacy_name,
+      pharmacy_address,
+    },
   });
 
   res.json({
